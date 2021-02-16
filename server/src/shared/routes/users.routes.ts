@@ -8,15 +8,24 @@ import UsersRepository from '@modules/users/repositories/UsersRepository';
 
 import CreateUserService from '@modules/users/services/CreateUserService';
 import UpdateUserAvatarService from '@modules/users/services/UpdateUserAvatarService';
+import User from '@modules/users/models/User';
 
+import RedisCache from '@shared/cache/RedisCache';
 import ensureAuthenticated from '../middlewares/ensureAuthenticated';
 
 const usersRouter = Router();
 const upload = multer(uploadConfig);
+const cache = new RedisCache();
 
 usersRouter.get('/', async (req, res) => {
-  const usersRepository = getCustomRepository(UsersRepository);
-  const users = await usersRepository.find();
+  let users = await cache.recover<User[]>('users-list');
+
+  if (!users) {
+    const usersRepository = getCustomRepository(UsersRepository);
+    users = await usersRepository.find();
+
+    await cache.save('users-list', users);
+  }
 
   return res.json(users);
 });
