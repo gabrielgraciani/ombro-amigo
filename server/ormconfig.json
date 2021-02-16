@@ -4,7 +4,7 @@
   "port": 5432,
   "username": "postgres",
   "password": "docker",
-  "database": "server_ts_example",
+  "database": "ombro_amigo",
   "entities": [
     "./src/modules/**/models/*.ts"
   ],
