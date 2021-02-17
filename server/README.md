@@ -42,11 +42,11 @@ Iniciando a aplicação.
 5. Crie uma imagem do Redis com a seguinte linha de comando no seu terminal: `docker run --name redis -p 6379:6379 -d -t redis:alpine`
 6. Inicie a sua imagem do Redis: `docker start redis` <br> *toda vez que o computador for reiniciado é necessário rodar este comando*
 7. Instale o dbeaver (ferramenta de acesso ao banco de dados): https://dbeaver.io/
-8. Inicie uma nova conexão com as seguintes configurações:
--PostgreSQL
--Host: localhost
--Database: ombro_amigo
--username: postgres
+8. Inicie uma nova conexão com as seguintes configurações: <br>
+-PostgreSQL <br>
+-Host: localhost <br>
+-Database: ombro_amigo <br>
+-username: postgres <br>
 -password: docker
 9. Com o banco criado, execute as migrations: `yarn typeorm migration:run ou npm run typeorm migration:run`
 10. Inicie o servidor: `yarn dev ou npm run dev`
