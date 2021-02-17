@@ -31,7 +31,7 @@ Em primeiro lugar, você precisa ter o *node* e *yarn* (ou *npm*) instalado em s
 
 Então você pode clonar o repositório.
 
-`git clone https://github.com/gabrielgraciani/twitch-doodles-backend`
+`git clone https://github.com/gabrielgraciani/ombro-amigo`
 
 Iniciando a aplicação.
 
