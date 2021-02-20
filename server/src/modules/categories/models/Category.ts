@@ -6,31 +6,16 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-@Entity('posts')
-class Post {
+@Entity('categories')
+class Category {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
-  user_id: string;
+  name: string;
 
   @Column()
-  category_id: string;
-
-  @Column()
-  type: string;
-
-  @Column()
-  message: string;
-
-  @Column()
-  audio: string;
-
-  @Column('integer')
-  likes: number;
-
-  @Column('integer')
-  deslikes: number;
+  image: string;
 
   @CreateDateColumn()
   created_at: Date;
@@ -39,4 +24,4 @@ class Post {
   updated_at: Date;
 }
 
-export default Post;
+export default Category;
