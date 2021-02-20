@@ -13,17 +13,17 @@ export default class PostsController {
   }
 
   public async create(request: Request, response: Response): Promise<Response> {
-    const { category_id, type, message, audio } = request.body;
-
+    const { category_id, message } = request.body;
     const { id: user_id } = request.user;
+
+    const filename = request.file !== undefined ? request.file.filename : '';
 
     const createPost = new CreatePostService();
     const post = await createPost.execute({
       user_id,
       category_id,
-      type,
-      message,
-      audio,
+      message: message || '',
+      audio: filename,
     });
 
     return response.json(post);
