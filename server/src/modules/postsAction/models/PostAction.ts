@@ -16,6 +16,9 @@ class PostAction {
   @Column()
   post_id: string;
 
+  @Column()
+  operation: string;
+
   @CreateDateColumn()
   created_at: Date;
 }

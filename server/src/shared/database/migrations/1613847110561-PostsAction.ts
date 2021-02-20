@@ -22,6 +22,10 @@ export default class PostsAction1613847110561 implements MigrationInterface {
             type: 'uuid',
           },
           {
+            name: 'operation',
+            type: 'varchar',
+          },
+          {
             name: 'created_at',
             type: 'timestamp',
             default: 'now()',
