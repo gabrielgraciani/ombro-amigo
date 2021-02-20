@@ -3,11 +3,10 @@ import {
   Column,
   PrimaryGeneratedColumn,
   CreateDateColumn,
-  UpdateDateColumn,
 } from 'typeorm';
 
-@Entity('posts')
-class Post {
+@Entity('posts_action')
+class PostAction {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -15,19 +14,10 @@ class Post {
   user_id: string;
 
   @Column()
-  category_id: string;
-
-  @Column()
-  message: string;
-
-  @Column()
-  audio: string;
+  post_id: string;
 
   @CreateDateColumn()
   created_at: Date;
-
-  @UpdateDateColumn()
-  updated_at: Date;
 }
 
-export default Post;
+export default PostAction;
