@@ -11,5 +11,11 @@ const upload = multer(uploadConfig.image);
 
 categoriesRouter.get('/', categoriesController.show);
 categoriesRouter.post('/', upload.single('image'), categoriesController.create);
+categoriesRouter.delete('/:id', categoriesController.delete);
+categoriesRouter.put(
+  '/:id',
+  upload.single('image'),
+  categoriesController.update,
+);
 
 export default categoriesRouter;
