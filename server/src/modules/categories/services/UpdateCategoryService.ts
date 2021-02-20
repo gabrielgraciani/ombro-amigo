@@ -16,7 +16,7 @@ interface Request {
   imageFilename: string;
 }
 
-class DeleteCategoryService {
+class UpdateCategoryService {
   public async execute({
     id,
     name,
@@ -32,7 +32,7 @@ class DeleteCategoryService {
       throw new AppError('Category not found', 404);
     }
 
-    if (category.image && imageFilename) {
+    if (category.image) {
       const categoryImageFilePath = path.join(
         uploadConfig.directory,
         category.image,
@@ -44,10 +44,9 @@ class DeleteCategoryService {
       if (categoryImageFileExists) {
         await fs.promises.unlink(categoryImageFilePath);
       }
-
-      category.image = imageFilename;
     }
 
+    category.image = imageFilename;
     category.name = name;
 
     await categoriesRepository.save(category);
@@ -57,4 +56,4 @@ class DeleteCategoryService {
   }
 }
 
-export default DeleteCategoryService;
+export default UpdateCategoryService;

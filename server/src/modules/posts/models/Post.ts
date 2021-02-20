@@ -18,9 +18,6 @@ class Post {
   category_id: string;
 
   @Column()
-  type: string;
-
-  @Column()
   message: string;
 
   @Column()

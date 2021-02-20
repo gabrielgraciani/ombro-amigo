@@ -2,6 +2,7 @@ import { getRepository } from 'typeorm';
 
 import Category from '@modules/categories/models/Category';
 import User from '@modules/users/models/User';
+import RedisCache from '@shared/cache/RedisCache';
 
 import AppError from '@shared/errors/AppError';
 
@@ -13,6 +14,8 @@ interface Request {
   message: string;
   audio: string;
 }
+
+const cache = new RedisCache();
 
 class CreatePostService {
   public async execute({
@@ -28,7 +31,7 @@ class CreatePostService {
     const user = await usersRepository.findOne(user_id);
 
     if (!user) {
-      throw new AppError('Only authenticated users can change avatar.', 401);
+      throw new AppError('Only authenticated users can create post.', 401);
     }
 
     const category = await categoriesRepository.findOne(category_id);
@@ -37,17 +40,15 @@ class CreatePostService {
       throw new AppError('Category was not found.', 404);
     }
 
-    const type = message && !audio ? 'message' : 'audio';
-
     const post = postsRepository.create({
       user_id,
       category_id,
-      type,
       message,
       audio,
     });
 
     await postsRepository.save(post);
+    await cache.invalidate('posts-list');
 
     return post;
   }

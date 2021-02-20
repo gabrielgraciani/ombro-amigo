@@ -18,5 +18,12 @@ postsRouter.post(
   upload.single('audio'),
   postsController.create,
 );
+postsRouter.put(
+  '/:id',
+  ensureAuthenticated,
+  upload.single('audio'),
+  postsController.update,
+);
+postsRouter.delete('/:id', ensureAuthenticated, postsController.delete);
 
 export default postsRouter;
