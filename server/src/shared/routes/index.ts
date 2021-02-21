@@ -6,6 +6,7 @@ import postsRouter from '@modules/posts/routes/posts.routes';
 import postLikeRouter from '@modules/postsAction/routes/postLike.routes';
 import postDeslikeRouter from '@modules/postsAction/routes/postDeslike.routes';
 import categoriesRouter from '@modules/categories/routes/categories.routes';
+import postsCommentsRouter from '@modules/postsComments/routes/postsComments.routes';
 
 const routes = Router();
 
@@ -15,5 +16,6 @@ routes.use('/posts', postsRouter);
 routes.use('/like', postLikeRouter);
 routes.use('/deslike', postDeslikeRouter);
 routes.use('/categories', categoriesRouter);
+routes.use('/comments', postsCommentsRouter);
 
 export default routes;
