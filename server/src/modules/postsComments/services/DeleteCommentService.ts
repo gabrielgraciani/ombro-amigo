@@ -1,12 +1,15 @@
 import { getRepository } from 'typeorm';
 
 import AppError from '@shared/errors/AppError';
+import RedisCache from '@shared/cache/RedisCache';
 import PostComment from '../models/PostComment';
 
 interface Request {
   id: string;
   user_id: string;
 }
+
+const cache = new RedisCache();
 
 class DeleteCommentService {
   public async execute({ id, user_id }: Request): Promise<void> {
@@ -29,6 +32,7 @@ class DeleteCommentService {
     }
 
     await postsCommentsRepository.delete({ id });
+    await cache.invalidatePrefix('posts-comments-list');
   }
 }
 
