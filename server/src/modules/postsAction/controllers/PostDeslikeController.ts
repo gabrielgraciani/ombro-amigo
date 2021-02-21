@@ -7,9 +7,9 @@ import FindDeslikesPerPostService from '@modules/postsAction/services/FindDeslik
 export default class PostDeslikeController {
   public async show(request: Request, response: Response): Promise<Response> {
     const listDeslikes = new ListDeslikesService();
-    const likes = await listDeslikes.execute();
+    const deslikes = await listDeslikes.execute();
 
-    return response.json(likes);
+    return response.json(deslikes);
   }
 
   public async create(request: Request, response: Response): Promise<Response> {
@@ -18,9 +18,9 @@ export default class PostDeslikeController {
 
     const manageDeslike = new ManageDeslikeService();
 
-    const like = await manageDeslike.execute({ user_id, post_id });
+    const deslike = await manageDeslike.execute({ user_id, post_id });
 
-    return response.json(like);
+    return response.json(deslike);
   }
 
   public async find(request: Request, response: Response): Promise<Response> {
@@ -28,8 +28,8 @@ export default class PostDeslikeController {
     const { id: user_id } = request.user;
 
     const findDeslikes = new FindDeslikesPerPostService();
-    const likes = await findDeslikes.execute({ user_id, post_id });
+    const deslikes = await findDeslikes.execute({ user_id, post_id });
 
-    return response.json(likes);
+    return response.json(deslikes);
   }
 }

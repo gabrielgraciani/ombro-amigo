@@ -1,7 +1,6 @@
 import { getRepository } from 'typeorm';
 
 import AppError from '@shared/errors/AppError';
-import RedisCache from '@shared/cache/RedisCache';
 import PostComment from '../models/PostComment';
 
 interface Request {
@@ -9,8 +8,6 @@ interface Request {
   user_id: string;
   message: string;
 }
-
-const cache = new RedisCache();
 
 class UpdateCommentService {
   public async execute({
@@ -38,7 +35,6 @@ class UpdateCommentService {
     postComment.message = message;
 
     await postsCommentsRepository.save(postComment);
-    await cache.invalidatePrefix('posts-comments-list');
 
     return postComment;
   }
