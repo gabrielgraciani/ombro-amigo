@@ -8,6 +8,7 @@ import postDeslikeRouter from '@modules/postsAction/routes/postDeslike.routes';
 import categoriesRouter from '@modules/categories/routes/categories.routes';
 import postsCommentsRouter from '@modules/postsComments/routes/postsComments.routes';
 import chatsRouter from '@modules/chats/routes/chats.routes';
+import chatsMessagesRouter from '@modules/chatsMessages/routes/chatsMessages.routes';
 
 const routes = Router();
 
@@ -19,5 +20,6 @@ routes.use('/deslike', postDeslikeRouter);
 routes.use('/categories', categoriesRouter);
 routes.use('/comments', postsCommentsRouter);
 routes.use('/chats', chatsRouter);
+routes.use('/chats-messages', chatsMessagesRouter);
 
 export default routes;

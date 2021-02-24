@@ -5,11 +5,11 @@ import CreateChatService from '@modules/chats/services/CreateChatService';
 
 export default class ChatsController {
   public async show(request: Request, response: Response): Promise<Response> {
-    const listServices = new ListChatsService();
+    const listChats = new ListChatsService();
 
-    const services = await listServices.execute();
+    const chats = await listChats.execute();
 
-    return response.json(services);
+    return response.json(chats);
   }
 
   public async create(request: Request, response: Response): Promise<Response> {
