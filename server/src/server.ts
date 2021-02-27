@@ -37,10 +37,6 @@ app.use((err: Error, req: Request, res: Response, _: NextFunction) => {
   });
 });
 
-// app.listen(process.env.PORT || 3333, () => {
-//   console.log(`server started on port ${process.env.PORT || 3333}`);
-// });
-
 const server = createServer(app);
 
 const socket = new SocketIO(server);
