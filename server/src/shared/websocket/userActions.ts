@@ -1,8 +1,4 @@
-interface User {
-  socketID: string;
-  username: string;
-  roomname: string;
-}
+import { User } from './socketIO.types';
 
 const users: User[] = [];
 function joinUser(socketId: string, userName: string, roomName: string): User {
