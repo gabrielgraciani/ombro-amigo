@@ -4,11 +4,15 @@ import express, { Request, Response, NextFunction } from 'express';
 import 'express-async-errors';
 import cors from 'cors';
 
+import { createServer } from 'http';
+
 import '@shared/database';
 import AppError from '@shared/errors/AppError';
 import uploadConfig from '@config/upload';
 
 import routes from '@shared/routes';
+
+import SocketIO from './shared/websocket/socketIO';
 
 const app = express();
 
@@ -33,6 +37,12 @@ app.use((err: Error, req: Request, res: Response, _: NextFunction) => {
   });
 });
 
-app.listen(process.env.PORT || 3333, () => {
+const server = createServer(app);
+
+const socket = new SocketIO(server);
+
+socket.execute();
+
+server.listen(process.env.PORT || 3333, () => {
   console.log(`server started on port ${process.env.PORT || 3333}`);
 });
