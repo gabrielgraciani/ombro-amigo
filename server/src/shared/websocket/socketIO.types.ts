@@ -11,7 +11,7 @@ interface MessageProps {
 interface User {
   socketID: string;
   username: string;
-  roomname: string;
+  roomName: string;
 }
 
 export { RoomProps, MessageProps, User };

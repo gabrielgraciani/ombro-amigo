@@ -4,6 +4,7 @@ import fs from 'fs';
 
 import uploadConfig from '@config/upload';
 import AppError from '@shared/errors/AppError';
+import RedisCache from '@shared/cache/RedisCache';
 
 import User from '../models/User';
 
@@ -11,6 +12,8 @@ interface Request {
   user_id: string;
   avatarFilename: string;
 }
+
+const cache = new RedisCache();
 
 class UpdateUserAvatarService {
   public async execute({ user_id, avatarFilename }: Request): Promise<User> {
@@ -34,6 +37,7 @@ class UpdateUserAvatarService {
     user.avatar = avatarFilename;
 
     await usersRepository.save(user);
+    await cache.invalidate('users-list');
 
     return user;
   }

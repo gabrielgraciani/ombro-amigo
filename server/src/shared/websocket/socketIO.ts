@@ -22,12 +22,12 @@ export default class SocketIO {
       socket.emit('send data', {
         id: socket.id,
         username: Newuser.username,
-        roomname: Newuser.roomname,
+        roomName: Newuser.roomName,
       });
 
-      this.thisRoom = Newuser.roomname;
+      this.thisRoom = Newuser.roomName;
       console.log(Newuser);
-      socket.join(Newuser.roomname);
+      socket.join(Newuser.roomName);
     });
   }
 

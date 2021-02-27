@@ -5,7 +5,7 @@ function joinUser(socketId: string, userName: string, roomName: string): User {
   const user = {
     socketID: socketId,
     username: userName,
-    roomname: roomName,
+    roomName,
   };
   users.push(user);
   return user;
