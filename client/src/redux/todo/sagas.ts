@@ -7,11 +7,11 @@ import {
   takeLatest,
 } from 'redux-saga/effects';
 
-import { fetchTodoFailure, fetchTodoSuccess } from '../actions/todoAction';
+import { fetchTodoFailure, fetchTodoSuccess } from './actions';
 
-import { FETCH_TODO_REQUEST } from '../actionTypes/todoActionType';
+import { FETCH_TODO_REQUEST } from './actionsTypes';
 
-import { getTodos } from '../services/todoService';
+import { getTodos } from './services';
 
 function* fetchTodoSaga() {
   try {

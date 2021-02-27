@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { fetchTodoRequest } from 'redux/actions/todoAction';
+import { fetchTodoRequest } from 'redux/todo/actions';
 
 import { AppState } from 'redux/reducers/rootReducer';
 

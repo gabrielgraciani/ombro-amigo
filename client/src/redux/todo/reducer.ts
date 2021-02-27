@@ -2,9 +2,9 @@ import {
   FETCH_TODO_REQUEST,
   FETCH_TODO_SUCCESS,
   FETCH_TODO_FAILURE,
-} from '../actionTypes/todoActionType';
+} from './actionsTypes';
 
-import { TodoActions, TodoState } from '../types/todoTypes';
+import { TodoActions, TodoState } from './types';
 
 const initialState: TodoState = {
   pending: false,

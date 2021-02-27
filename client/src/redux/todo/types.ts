@@ -2,9 +2,9 @@ import {
   FETCH_TODO_REQUEST,
   FETCH_TODO_SUCCESS,
   FETCH_TODO_FAILURE,
-} from '../actionTypes/todoActionType';
+} from './actionsTypes';
 
-interface ITodo {
+interface Todo {
   userId: number;
   id: number;
   title: string;
@@ -13,12 +13,12 @@ interface ITodo {
 
 interface TodoState {
   pending: boolean;
-  todos: ITodo[];
+  todos: Todo[];
   error: string | null;
 }
 
 interface FetchTodoSuccessPayload {
-  todos: ITodo[];
+  todos: Todo[];
 }
 
 interface FetchTodoFailurePayload {
@@ -42,7 +42,7 @@ type FetchTodoFailure = {
 type TodoActions = FetchTodoRequest | FetchTodoSuccess | FetchTodoFailure;
 
 export type {
-  ITodo,
+  Todo,
   TodoState,
   FetchTodoSuccessPayload,
   FetchTodoFailurePayload,
