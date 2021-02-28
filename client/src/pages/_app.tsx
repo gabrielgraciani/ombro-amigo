@@ -5,11 +5,13 @@ import { Provider } from 'react-redux';
 import GlobalStyles from 'styles/globalStyles';
 import store from 'redux/store/store';
 
+import AppHandler from 'containers/AppHandler/AppHandler';
+
 function App({ Component, pageProps }: AppProps): React.ReactElement {
   return (
     <>
       <Head>
-        <title>Redux saga em next</title>
+        <title>Ombro Amigo</title>
         <link rel="shortcut icon" href="/favicon.ico" />
         <meta
           name="description"
@@ -19,7 +21,9 @@ function App({ Component, pageProps }: AppProps): React.ReactElement {
       <GlobalStyles />
 
       <Provider store={store}>
-        <Component {...pageProps} />
+        <AppHandler>
+          <Component {...pageProps} />
+        </AppHandler>
       </Provider>
     </>
   );

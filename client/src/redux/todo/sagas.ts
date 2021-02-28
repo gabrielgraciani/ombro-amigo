@@ -1,7 +1,6 @@
 import {
   all,
   AllEffect,
-  call,
   ForkEffect,
   put,
   takeLatest,
@@ -13,18 +12,21 @@ import { FETCH_TODO_REQUEST } from './actionsTypes';
 
 import { getTodos } from './services';
 
+import callWrapperSaga from '../sagas/callWrapperSaga';
+
 function* fetchTodoSaga() {
-  try {
-    const response = yield call(getTodos);
+  const response = yield callWrapperSaga(getTodos);
+
+  if (response.data) {
     yield put(
       fetchTodoSuccess({
         todos: response.data,
       }),
     );
-  } catch (e) {
+  } else {
     yield put(
       fetchTodoFailure({
-        error: e.message,
+        error: response.error.message,
       }),
     );
   }
