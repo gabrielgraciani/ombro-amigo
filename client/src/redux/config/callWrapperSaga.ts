@@ -1,5 +1,5 @@
 import { call } from 'redux-saga/effects';
-import store from '../store/store';
+import store from './store';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any,  @typescript-eslint/explicit-module-boundary-types
 function* callWrapperSaga(fn: any, ...args: any[]): Generator {

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { fetchTodoRequest } from 'redux/todo/actions';
 
-import { AppState } from 'redux/reducers/rootReducer';
+import { AppState } from 'redux/config/rootReducer';
 import ToastContainer from '../components/ToastContainer';
 
 const Home = (): React.ReactElement => {

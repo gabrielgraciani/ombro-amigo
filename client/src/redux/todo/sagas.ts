@@ -12,7 +12,7 @@ import { FETCH_TODO_REQUEST } from './actionsTypes';
 
 import { getTodos } from './services';
 
-import callWrapperSaga from '../sagas/callWrapperSaga';
+import callWrapperSaga from '../config/callWrapperSaga';
 
 function* fetchTodoSaga() {
   const response = yield callWrapperSaga(getTodos);

@@ -2,8 +2,7 @@ import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { Provider } from 'react-redux';
 
-import GlobalStyles from 'styles/globalStyles';
-import store from 'redux/store/store';
+import store from 'redux/config/store';
 
 import AppHandler from 'containers/AppHandler/AppHandler';
 

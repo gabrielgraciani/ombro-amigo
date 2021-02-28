@@ -1,9 +1,9 @@
-import { DefaultTheme, ThemeProvider, CustomTheme } from 'styled-components';
+import { DefaultTheme, ThemeProvider } from 'styled-components';
 import GlobalStyles from 'styles/globalStyles';
 
 import { useSelector } from 'react-redux';
 
-import { AppState } from 'redux/reducers/rootReducer';
+import { AppState } from 'redux/config/rootReducer';
 import ToastContainer from 'components/ToastContainer';
 
 import BaseProps from 'interfaces/BaseProps';
