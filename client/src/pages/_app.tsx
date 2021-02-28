@@ -4,6 +4,8 @@ import { Provider } from 'react-redux';
 
 import store from 'redux/config/store';
 
+import { ThemeProvider } from 'hooks/useTheme';
+
 import AppHandler from 'containers/AppHandler/AppHandler';
 
 function App({ Component, pageProps }: AppProps): React.ReactElement {
@@ -19,9 +21,11 @@ function App({ Component, pageProps }: AppProps): React.ReactElement {
       </Head>
 
       <Provider store={store}>
-        <AppHandler>
-          <Component {...pageProps} />
-        </AppHandler>
+        <ThemeProvider>
+          <AppHandler>
+            <Component {...pageProps} />
+          </AppHandler>
+        </ThemeProvider>
       </Provider>
     </>
   );

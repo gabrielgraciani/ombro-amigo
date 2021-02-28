@@ -4,16 +4,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchTodoRequest } from 'redux/todo/actions';
 
 import { AppState } from 'redux/config/rootReducer';
-import ToastContainer from '../components/ToastContainer';
+
+import { useTheme } from '../hooks/useTheme';
 
 const Home = (): React.ReactElement => {
   const dispatch = useDispatch();
 
+  const { toggleTheme } = useTheme();
+
   const { todos, pending, error } = useSelector(
     (state: AppState) => state.todo,
   );
-
-  const { list } = useSelector((state: AppState) => state.toast);
 
   useEffect(() => {
     dispatch(fetchTodoRequest());
@@ -21,7 +22,9 @@ const Home = (): React.ReactElement => {
 
   return (
     <>
-      <ToastContainer messages={list} />
+      <button type="button" onClick={toggleTheme}>
+        change theme
+      </button>
 
       <div style={{ padding: '15px' }}>
         {pending && <div>Loading...</div>}
