@@ -15,9 +15,20 @@ const GlobalStyles = createGlobalStyle`
     height: 100%;
   }
 
+  h1, h2, h3, h4, h5, h6, strong {
+    font-weight: 700;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
   body {
     font-family: --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: ${props => props.theme.colors.background};
+    color: ${props => props.theme.colors.text};
   }
+
 `;
 
 export default GlobalStyles;

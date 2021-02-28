@@ -18,7 +18,6 @@ function App({ Component, pageProps }: AppProps): React.ReactElement {
           content="A simple project starter to work with Typescript, React, NextJS and Styled Components"
         />
       </Head>
-      <GlobalStyles />
 
       <Provider store={store}>
         <AppHandler>
