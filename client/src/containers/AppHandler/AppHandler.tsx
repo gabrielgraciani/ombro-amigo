@@ -1,4 +1,4 @@
-import { DefaultTheme, ThemeProvider } from 'styled-components';
+import { DefaultTheme, ThemeProvider, CustomTheme } from 'styled-components';
 import GlobalStyles from 'styles/globalStyles';
 
 import { useSelector } from 'react-redux';
@@ -7,7 +7,8 @@ import { AppState } from 'redux/reducers/rootReducer';
 import ToastContainer from 'components/ToastContainer';
 
 import BaseProps from 'interfaces/BaseProps';
-import { combineTheme, dark, light } from 'styles/themes';
+import dark from 'styles/themes/dark';
+import light from 'styles/themes/light';
 
 import usePersistedState from 'hooks/usePersistedState';
 
@@ -16,14 +17,12 @@ export default function AppHandler({
 }: BaseProps): React.ReactElement {
   const [theme, setTheme] = usePersistedState<DefaultTheme>(
     'ombro-amigo-theme',
-    combineTheme(light),
+    light,
   );
   const { list } = useSelector((state: AppState) => state.toast);
 
   const toggleTheme = () => {
-    setTheme(
-      theme.title === 'light' ? combineTheme(dark) : combineTheme(light),
-    );
+    setTheme(theme.title === 'light' ? dark : light);
   };
 
   return (
