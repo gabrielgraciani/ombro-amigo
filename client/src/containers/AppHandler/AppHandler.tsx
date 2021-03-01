@@ -1,4 +1,4 @@
-import GlobalStyles from 'styles/globalStyles';
+import GlobalStyles, { Main } from 'styles/globalStyles';
 
 import { useSelector } from 'react-redux';
 
@@ -6,6 +6,9 @@ import { AppState } from 'redux/config/rootReducer';
 import ToastContainer from 'components/ToastContainer';
 
 import BaseProps from 'interfaces/BaseProps';
+
+import { Header } from 'containers/Header';
+import { Footer } from 'containers/Footer';
 
 export default function AppHandler({
   children,
@@ -16,8 +19,12 @@ export default function AppHandler({
     <>
       <GlobalStyles />
 
+      <Header />
       <ToastContainer messages={list} />
-      {children}
+
+      <Main>{children}</Main>
+
+      <Footer />
     </>
   );
 }

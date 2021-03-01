@@ -8,18 +8,8 @@ declare module 'styled-components' {
       secundary: string;
 
       background: string;
-      text: string;
-    };
-  }
 
-  export interface CustomTheme {
-    title: string;
-    colors: {
-      primary: string;
-      secundary: string;
-
-      background: string;
-      text: string;
+      lightGray: string;
     };
   }
 }
