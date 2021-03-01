@@ -1,14 +1,20 @@
 import { ReactElement } from 'react';
-import { Container, Logo, Menu, Perfil } from './Header.styles';
+import { FiUser } from 'react-icons/fi';
+
+import { Container, Indent, Logo, Menu, Perfil } from './Header.styles';
 
 const Header = (): ReactElement => {
   return (
     <Container>
-      <Logo>Ombro amigo</Logo>
+      <Indent>
+        <Logo>Ombro amigo</Logo>
 
-      <Menu>menu</Menu>
+        <Menu>menu</Menu>
 
-      <Perfil>perfil</Perfil>
+        <Perfil>
+          <FiUser size="2rem" />
+        </Perfil>
+      </Indent>
     </Container>
   );
 };
